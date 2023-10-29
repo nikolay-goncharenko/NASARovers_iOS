@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E346573D2AEA917E008A20B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346573C2AEA917E008A20B1 /* AppDelegate.swift */; };
 		E346573F2AEA917E008A20B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E346573E2AEA917E008A20B1 /* SceneDelegate.swift */; };
-		E34657412AEA917F008A20B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34657402AEA917E008A20B1 /* ViewController.swift */; };
 		E34657462AEA9181008A20B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E34657452AEA9181008A20B1 /* Assets.xcassets */; };
 		E34657492AEA9181008A20B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E34657472AEA9181008A20B1 /* LaunchScreen.storyboard */; };
 		E34657532AEAA171008A20B1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E34657522AEAA171008A20B1 /* SnapKit */; };
@@ -19,18 +18,65 @@
 		E346576E2AEAB4B3008A20B1 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = E346576D2AEAB4B3008A20B1 /* RswiftLibrary */; };
 		E3EA21E22AEAB95A000C66C3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E3EA21E12AEAB95A000C66C3 /* Realm */; };
 		E3EA21E42AEAB95A000C66C3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E3EA21E32AEAB95A000C66C3 /* RealmSwift */; };
+		E3EA21EE2AEABED5000C66C3 /* TabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA21ED2AEABED5000C66C3 /* TabBarModule.swift */; };
+		E3EA21F12AEABF2E000C66C3 /* BaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA21F02AEABF2E000C66C3 /* BaseModule.swift */; };
+		E3EA21F32AEAC2C8000C66C3 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA21F22AEAC2C8000C66C3 /* TabBarViewModel.swift */; };
+		E3EA21F62AEAC357000C66C3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA21F52AEAC357000C66C3 /* TabBarViewController.swift */; };
+		E3EA21F82AEAD7DF000C66C3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA21F72AEAD7DF000C66C3 /* BaseViewController.swift */; };
+		E3EA21FC2AEB0695000C66C3 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA21FB2AEB0695000C66C3 /* HomeModule.swift */; };
+		E3EA21FF2AEB06A9000C66C3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA21FE2AEB06A9000C66C3 /* HomeViewModel.swift */; };
+		E3EA22012AEB06C3000C66C3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22002AEB06C3000C66C3 /* HomeViewController.swift */; };
+		E3EA22042AEB18A5000C66C3 /* HistoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22032AEB18A5000C66C3 /* HistoryModule.swift */; };
+		E3EA22072AEB1914000C66C3 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22062AEB1914000C66C3 /* HistoryViewModel.swift */; };
+		E3EA22092AEB192C000C66C3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22082AEB192C000C66C3 /* HistoryViewController.swift */; };
+		E3EA220E2AED516D000C66C3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA220D2AED516D000C66C3 /* HeaderView.swift */; };
+		E3EA22112AED5284000C66C3 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22102AED5284000C66C3 /* Screen.swift */; };
+		E3EA22192AED7CB2000C66C3 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22182AED7CB2000C66C3 /* ToolbarView.swift */; };
+		E3EA221C2AED8317000C66C3 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA221B2AED8317000C66C3 /* BaseButton.swift */; };
+		E3EA221E2AED9AC3000C66C3 /* RoverCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA221D2AED9AC2000C66C3 /* RoverCardCell.swift */; };
+		E3EA22222AEDAF30000C66C3 /* CalendarDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22212AEDAF30000C66C3 /* CalendarDatePicker.swift */; };
+		E3EA222D2AEEB500000C66C3 /* CalenderHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22272AEEB4FF000C66C3 /* CalenderHeaderCell.swift */; };
+		E3EA222E2AEEB500000C66C3 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22282AEEB4FF000C66C3 /* CalenderView.swift */; };
+		E3EA222F2AEEB500000C66C3 /* CalenderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22292AEEB4FF000C66C3 /* CalenderStyle.swift */; };
+		E3EA22302AEEB500000C66C3 /* CalenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA222A2AEEB4FF000C66C3 /* CalenderCell.swift */; };
+		E3EA22312AEEB500000C66C3 /* Date+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA222B2AEEB4FF000C66C3 /* Date+Exts.swift */; };
+		E3EA22322AEEB500000C66C3 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA222C2AEEB500000C66C3 /* Day.swift */; };
+		E3EA22342AEEB527000C66C3 /* CalendarDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA22332AEEB527000C66C3 /* CalendarDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E34657392AEA917E008A20B1 /* NASA Rovers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NASA Rovers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E346573C2AEA917E008A20B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E346573E2AEA917E008A20B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E34657402AEA917E008A20B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E34657452AEA9181008A20B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E34657482AEA9181008A20B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E346574A2AEA9181008A20B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E34657642AEAAEBB008A20B1 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		E34657652AEAAEBB008A20B1 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		E3EA21ED2AEABED5000C66C3 /* TabBarModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModule.swift; sourceTree = "<group>"; };
+		E3EA21F02AEABF2E000C66C3 /* BaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModule.swift; sourceTree = "<group>"; };
+		E3EA21F22AEAC2C8000C66C3 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		E3EA21F52AEAC357000C66C3 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		E3EA21F72AEAD7DF000C66C3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E3EA21FB2AEB0695000C66C3 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
+		E3EA21FE2AEB06A9000C66C3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E3EA22002AEB06C3000C66C3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E3EA22032AEB18A5000C66C3 /* HistoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModule.swift; sourceTree = "<group>"; };
+		E3EA22062AEB1914000C66C3 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		E3EA22082AEB192C000C66C3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		E3EA220D2AED516D000C66C3 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E3EA22102AED5284000C66C3 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		E3EA22182AED7CB2000C66C3 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		E3EA221B2AED8317000C66C3 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		E3EA221D2AED9AC2000C66C3 /* RoverCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCardCell.swift; sourceTree = "<group>"; };
+		E3EA22212AEDAF30000C66C3 /* CalendarDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDatePicker.swift; sourceTree = "<group>"; };
+		E3EA22272AEEB4FF000C66C3 /* CalenderHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderHeaderCell.swift; sourceTree = "<group>"; };
+		E3EA22282AEEB4FF000C66C3 /* CalenderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
+		E3EA22292AEEB4FF000C66C3 /* CalenderStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderStyle.swift; sourceTree = "<group>"; };
+		E3EA222A2AEEB4FF000C66C3 /* CalenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderCell.swift; sourceTree = "<group>"; };
+		E3EA222B2AEEB4FF000C66C3 /* Date+Exts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Exts.swift"; sourceTree = "<group>"; };
+		E3EA222C2AEEB500000C66C3 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		E3EA22332AEEB527000C66C3 /* CalendarDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +115,12 @@
 		E346573B2AEA917E008A20B1 /* NASA Rovers */ = {
 			isa = PBXGroup;
 			children = (
-				E346573C2AEA917E008A20B1 /* AppDelegate.swift */,
-				E346573E2AEA917E008A20B1 /* SceneDelegate.swift */,
-				E34657402AEA917E008A20B1 /* ViewController.swift */,
+				E3EA21E72AEABE47000C66C3 /* Delegates */,
+				E3EA21E92AEABE6B000C66C3 /* Modules */,
+				E3EA21EF2AEABEF1000C66C3 /* Core Layer */,
+				E3EA220F2AED5269000C66C3 /* Utils */,
+				E3EA220B2AED5127000C66C3 /* UI Components */,
+				E3EA21F42AEAC32D000C66C3 /* Network Layer */,
 				E34657622AEAAE68008A20B1 /* Resources */,
 				E34657472AEA9181008A20B1 /* LaunchScreen.storyboard */,
 				E346574A2AEA9181008A20B1 /* Info.plist */,
@@ -102,6 +151,114 @@
 				E34657652AEAAEBB008A20B1 /* SF-Pro-Text-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E3EA21E72AEABE47000C66C3 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E346573C2AEA917E008A20B1 /* AppDelegate.swift */,
+				E346573E2AEA917E008A20B1 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		E3EA21E92AEABE6B000C66C3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA21EC2AEABEA8000C66C3 /* History */,
+				E3EA21EB2AEABE9E000C66C3 /* Home */,
+				E3EA21EA2AEABE87000C66C3 /* Tab Bar */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E3EA21EA2AEABE87000C66C3 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA21ED2AEABED5000C66C3 /* TabBarModule.swift */,
+				E3EA21F22AEAC2C8000C66C3 /* TabBarViewModel.swift */,
+				E3EA21F52AEAC357000C66C3 /* TabBarViewController.swift */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		E3EA21EB2AEABE9E000C66C3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA21FB2AEB0695000C66C3 /* HomeModule.swift */,
+				E3EA21FE2AEB06A9000C66C3 /* HomeViewModel.swift */,
+				E3EA22002AEB06C3000C66C3 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E3EA21EC2AEABEA8000C66C3 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA22032AEB18A5000C66C3 /* HistoryModule.swift */,
+				E3EA22062AEB1914000C66C3 /* HistoryViewModel.swift */,
+				E3EA22082AEB192C000C66C3 /* HistoryViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		E3EA21EF2AEABEF1000C66C3 /* Core Layer */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA21F02AEABF2E000C66C3 /* BaseModule.swift */,
+				E3EA21F72AEAD7DF000C66C3 /* BaseViewController.swift */,
+				E3EA221B2AED8317000C66C3 /* BaseButton.swift */,
+			);
+			path = "Core Layer";
+			sourceTree = "<group>";
+		};
+		E3EA21F42AEAC32D000C66C3 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		E3EA220B2AED5127000C66C3 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA22242AEEB4A3000C66C3 /* Calendars */,
+				E3EA220D2AED516D000C66C3 /* HeaderView.swift */,
+				E3EA22182AED7CB2000C66C3 /* ToolbarView.swift */,
+				E3EA221D2AED9AC2000C66C3 /* RoverCardCell.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		E3EA220F2AED5269000C66C3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA22102AED5284000C66C3 /* Screen.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E3EA22242AEEB4A3000C66C3 /* Calendars */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA22262AEEB4ED000C66C3 /* CalendarView */,
+				E3EA22212AEDAF30000C66C3 /* CalendarDatePicker.swift */,
+				E3EA22332AEEB527000C66C3 /* CalendarDateView.swift */,
+			);
+			path = Calendars;
+			sourceTree = "<group>";
+		};
+		E3EA22262AEEB4ED000C66C3 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				E3EA222A2AEEB4FF000C66C3 /* CalenderCell.swift */,
+				E3EA22272AEEB4FF000C66C3 /* CalenderHeaderCell.swift */,
+				E3EA22292AEEB4FF000C66C3 /* CalenderStyle.swift */,
+				E3EA22282AEEB4FF000C66C3 /* CalenderView.swift */,
+				E3EA222B2AEEB4FF000C66C3 /* Date+Exts.swift */,
+				E3EA222C2AEEB500000C66C3 /* Day.swift */,
+			);
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +347,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E34657412AEA917F008A20B1 /* ViewController.swift in Sources */,
+				E3EA22042AEB18A5000C66C3 /* HistoryModule.swift in Sources */,
+				E3EA22302AEEB500000C66C3 /* CalenderCell.swift in Sources */,
+				E3EA21FF2AEB06A9000C66C3 /* HomeViewModel.swift in Sources */,
+				E3EA22092AEB192C000C66C3 /* HistoryViewController.swift in Sources */,
+				E3EA22322AEEB500000C66C3 /* Day.swift in Sources */,
+				E3EA21F12AEABF2E000C66C3 /* BaseModule.swift in Sources */,
+				E3EA22222AEDAF30000C66C3 /* CalendarDatePicker.swift in Sources */,
+				E3EA221E2AED9AC3000C66C3 /* RoverCardCell.swift in Sources */,
+				E3EA222E2AEEB500000C66C3 /* CalenderView.swift in Sources */,
+				E3EA221C2AED8317000C66C3 /* BaseButton.swift in Sources */,
+				E3EA21FC2AEB0695000C66C3 /* HomeModule.swift in Sources */,
 				E346573D2AEA917E008A20B1 /* AppDelegate.swift in Sources */,
 				E346573F2AEA917E008A20B1 /* SceneDelegate.swift in Sources */,
+				E3EA222D2AEEB500000C66C3 /* CalenderHeaderCell.swift in Sources */,
+				E3EA22312AEEB500000C66C3 /* Date+Exts.swift in Sources */,
+				E3EA21F62AEAC357000C66C3 /* TabBarViewController.swift in Sources */,
+				E3EA21F82AEAD7DF000C66C3 /* BaseViewController.swift in Sources */,
+				E3EA21F32AEAC2C8000C66C3 /* TabBarViewModel.swift in Sources */,
+				E3EA22342AEEB527000C66C3 /* CalendarDateView.swift in Sources */,
+				E3EA21EE2AEABED5000C66C3 /* TabBarModule.swift in Sources */,
+				E3EA22012AEB06C3000C66C3 /* HomeViewController.swift in Sources */,
+				E3EA22112AED5284000C66C3 /* Screen.swift in Sources */,
+				E3EA22072AEB1914000C66C3 /* HistoryViewModel.swift in Sources */,
+				E3EA222F2AEEB500000C66C3 /* CalenderStyle.swift in Sources */,
+				E3EA22192AED7CB2000C66C3 /* ToolbarView.swift in Sources */,
+				E3EA220E2AED516D000C66C3 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +523,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -370,6 +551,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
