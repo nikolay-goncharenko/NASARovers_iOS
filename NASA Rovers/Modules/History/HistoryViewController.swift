@@ -83,21 +83,40 @@ class HistoryViewController: BaseViewController {
     override func setupHandlers() {
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
 }
 
 extension HistoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return viewModel.realmData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoverCardCell", for: indexPath) as UICollectionViewCell
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoverCardCell", for: indexPath) as? RoverCardCell {
+            
+            let model = viewModel.realmData[indexPath.item]
+            let image = UIImage(data: model.image) ?? R.image.wallpaper()!
+            
+            cell.setPhotoImg(image)
+            cell.setCameraNameLbl(model.cameraFullName)
+            cell.setRoverNameLbl(model.roverName)
+            cell.setDateLbl(model.earthDate)
+            
+            return cell
+        } else {
+            return RoverCardCell()
+        }
     }
 }
 
 extension HistoryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        
+        let model = viewModel.realmData[indexPath.item]
+        viewModel.openFullScreenPhoto(model: model)
     }
 }

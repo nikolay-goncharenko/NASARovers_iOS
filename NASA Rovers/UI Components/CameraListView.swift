@@ -1,16 +1,20 @@
 //
-//  CalendarDateView.swift
+//  CameraListView.swift
 //  NASA Rovers
 //
-//  Created by Nikolay Goncharenko on 29.10.2023.
+//  Created by Nikolay Goncharenko on 01.11.2023.
 //
 
 import UIKit
+import RealmSwift
 
-final class CalendarDateView: UIStackView {
+final class CameraListView: UIStackView {
     
-    internal var takeSelectedDate: ((String) -> Void)?
-    internal var hideCalendar: (() -> Void)?
+    internal var closeCameraListView: (() -> Void)?
+    internal var tableViewReloadData: (() -> Void)?
+    
+    let realm = try! Realm()
+    lazy var realmStorage = realm.objects(TempStorage.self)
     
     private let indicatorView: UIView = {
         let view = UIView()
@@ -27,13 +31,12 @@ final class CalendarDateView: UIStackView {
         return stack
     }()
     
-    private let calendarDateView: CalendarView = {
-        let calendar = CalendarView()
-        calendar.style.activeDate = .init(
-            textColor: .white, backgroundColor: .black)
-        calendar.style.inActiveDate = .init(
-            textColor: .black, backgroundColor: .clear)
-        return calendar
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.backgroundColor = .clear
+        table.dataSource = self
+        table.delegate = self
+        return table
     }()
     
     override init(frame: CGRect) {
@@ -51,6 +54,7 @@ final class CalendarDateView: UIStackView {
         backgroundColor = .white
         distribution = .fill
         axis = .vertical
+        spacing = 16
         
         isLayoutMarginsRelativeArrangement = true
         directionalLayoutMargins = NSDirectionalEdgeInsets(
@@ -65,7 +69,7 @@ final class CalendarDateView: UIStackView {
         )
         
         addArrangedSubview(indicatorStack)
-        addArrangedSubview(calendarDateView)
+        addArrangedSubview(tableView)
     }
     
     private func setupLayout() {
@@ -73,22 +77,43 @@ final class CalendarDateView: UIStackView {
             $0.size.equalTo(CGSize(width: 30, height: 4))
         }
         
-        calendarDateView.snp.makeConstraints {
+        tableView.snp.makeConstraints {
             $0.height.equalTo(300)
         }
     }
     
-    private func selectedDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: date)
+    private func setuphandlers() {
+        tableViewReloadData = { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+}
+
+extension CameraListView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return realmStorage[0].cameras.count
     }
     
-    private func setuphandlers() {
-        calendarDateView.didSelectDate = { [weak self] in
-            guard let self = self, let day = $0 else { return }
-            self.takeSelectedDate?(self.selectedDate(day.date))
-            self.hideCalendar?()
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        
+        let camera = realmStorage[0].cameras[indexPath.item].fullName
+        cell.textLabel?.text = camera
+        return cell
+    }
+}
+
+extension CameraListView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        try! realm.write {
+            realmStorage[0].item = indexPath.item
         }
+        
+        closeCameraListView?()
     }
 }

@@ -50,13 +50,18 @@ final class HomeViewController: BaseViewController {
     
     private let toolbarView = ToolbarView()
     
+    private let calendarDatePicker = CalendarDatePicker()
+    private let calendarDateView = CalendarDateView()
+    
     internal var actualCalendarView: UIView {
         if #available(iOS 14, *) {
-            return CalendarDatePicker()
+            return calendarDatePicker
         } else {
-            return CalendarDateView()
+            return calendarDateView
         }
     }
+    
+    internal var cameraListView = CameraListView()
     
     override init() {
         super.init()
@@ -98,29 +103,90 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setupHandlers() {
+        viewModel.collectionViewReloadData = { [weak self] in
+            self?.collectionView.reloadData()
+        }
+        
+        toolbarView.roverHandler = { [weak self] rover in
+            self?.viewModel.roverDidChange?(rover)
+            self?.viewModel.saveRover(rover)
+        }
+        
         toolbarView.calendarHandler = { [weak self] in
-            self?.viewModel.showCalendar()
+            self?.viewModel.showCalendarPicker()
         }
         
         toolbarView.cameraHandler = { [weak self] in
-            self?.viewModel.selectCamera()
+            self?.viewModel.showCameraListView()
+        }
+        
+        cameraListView.closeCameraListView = { [weak self] in
+            self?.viewModel.hideCameraListView()
+        }
+        
+        calendarDatePicker.takeSelectedDate = { [weak self] date in
+            self?.viewModel.homeModel.removeAll()
+            self?.viewModel.saveDate(date)
+        }
+        
+        calendarDatePicker.hideCalendar = { [weak self] in
+            self?.viewModel.hideCalendarPicker()
+        }
+        
+        calendarDateView.takeSelectedDate = { [weak self] date in
+            self?.viewModel.homeModel.removeAll()
+            self?.viewModel.saveDate(date)
+        }
+        
+        calendarDateView.hideCalendar = { [weak self] in
+            self?.viewModel.hideCalendarPicker()
         }
     }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.homeModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoverCardCell", for: indexPath) as UICollectionViewCell
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoverCardCell", for: indexPath) as? RoverCardCell {
+
+            let model = viewModel.homeModel[indexPath.item]
+            let image = UIImage(data: model.image) ?? R.image.wallpaper()!
+            cell.setPhotoImg(image)
+            cell.setCameraNameLbl(model.cameraFullName)
+            cell.setRoverNameLbl(model.roverName)
+            cell.setDateLbl(model.earthDate)
+            
+            return cell
+        } else {
+            return RoverCardCell()
+        }
     }
 }
 
 extension HomeViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        
+        let model = viewModel.homeModel[indexPath.item]
+        viewModel.saveViewedMarsPhoto(model: model)
+        viewModel.openFullScreenPhoto(model: model)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak viewModel] in
+            guard let viewModel else { return }
+            
+            if indexPath.item == (viewModel.homeModel.count - 1) {
+                viewModel.page += 1
+//                viewModel.getAllRoversPhoto(
+//                    rover: viewModel.realmStorage[0].rover,
+//                    page: viewModel.page
+//                )
+            }
+        }
     }
 }

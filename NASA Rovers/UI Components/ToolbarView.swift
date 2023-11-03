@@ -10,9 +10,7 @@ import UIKit
 final class ToolbarView: UIStackView {
     
     // MARK: Control Handlers
-    internal var roverCuriosityHandler: (() -> Void)?
-    internal var roverOpportunityHandler: (() -> Void)?
-    internal var roverSpiritHandler: (() -> Void)?
+    internal var roverHandler: ((Routes.Rover) -> Void)?
     internal var calendarHandler: (() -> Void)?
     internal var cameraHandler: (() -> Void)?
     
@@ -94,11 +92,11 @@ final class ToolbarView: UIStackView {
     @objc private func selectRover(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case Rover.curiosity.index:
-            print("Curiosity was selected")
+            roverHandler?(Routes.Rover.curiosity)
         case Rover.opportunity.index:
-            print("Opportunity was selected")
+            roverHandler?(Routes.Rover.opportunity)
         case Rover.spirit.index:
-            print("Spirit was selected")
+            roverHandler?(Routes.Rover.spirit)
         default:
             break
         }

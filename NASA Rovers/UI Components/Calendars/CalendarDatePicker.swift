@@ -85,9 +85,14 @@ final class CalendarDatePicker: UIStackView {
         )
     }
     
+    private func selectedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
+    
     @objc private func datePicker(_ sender: UIDatePicker) {
-        takeSelectedDate?(sender.date.description)
+        takeSelectedDate?(selectedDate(sender.date))
         hideCalendar?()
-        print(sender.date.description)
     }
 }

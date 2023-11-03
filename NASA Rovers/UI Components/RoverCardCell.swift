@@ -37,6 +37,7 @@ final class RoverCardCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .black
         label.font = R.font.sfProTextRegular(size: 14)
+        label.numberOfLines = 0
         label.text = "Camera name"
         return label
     }()
